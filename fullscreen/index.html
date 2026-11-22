@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>GameHub - Tu Portal de Videojuegos</title>
+    <meta name="description" content="GameHub - Tu portal de videojuegos (PWA · fullscreen · landscape)">
+    <meta name="theme-color" content="#0f0f1a">
+
+    <!-- ===== PWA: Web App Manifest ===== -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="GameHub F">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/pwa.css">
+    <!-- Font Awesome local (antes CDN) para que los íconos funcionen sin conexión -->
+    <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+</head>
+<body>
+
+    <!-- ===== ENCABEZADO ===== -->
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-gamepad"></i>
+            <span>GameHub</span>
+        </div>
+        <nav class="nav" id="nav">
+            <a href="#inicio">Inicio</a>
+            <a href="#generos">Géneros</a>
+            <a href="#destacados">Destacados</a>
+            <a href="#galeria">Galería</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+        <button class="btn-instalar" id="btnInstalar" hidden>
+            <i class="fas fa-download"></i> Instalar
+        </button>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Bienvenido a <span>GameHub</span></h1>
+            <p>Descubre los mejores videojuegos, reseñas, noticias y recomendaciones del mundo gamer.</p>
+            <button class="btn-primary" id="btnHero">
+                <i class="fas fa-play"></i> Explorar Ahora
+            </button>
+        </div>
+    </section>
+
+    <!-- ===== SECCIÓN 1: GÉNEROS ===== -->
+    <section id="generos" class="section">
+        <h2 class="section-title">Géneros Populares</h2>
+        <p class="section-subtitle">Explora los géneros más jugados del momento</p>
+        <div class="cards">
+            <div class="card">
+                <i class="fas fa-crosshairs card-icon"></i>
+                <h3>FPS</h3>
+                <p>Shooters en primera persona llenos de acción y adrenalina.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-dragon card-icon"></i>
+                <h3>RPG</h3>
+                <p>Juegos de rol con historias épicas y mundos infinitos.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-futbol card-icon"></i>
+                <h3>Deportes</h3>
+                <p>Vive la emoción del deporte desde tu consola o PC.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-ghost card-icon"></i>
+                <h3>Terror</h3>
+                <p>Experiencias escalofriantes que pondrán a prueba tus nervios.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECCIÓN 2: DESTACADOS (CON BOTÓN VER MÁS) ===== -->
+    <section id="destacados" class="section section-dark">
+        <h2 class="section-title">Juegos Destacados</h2>
+        <p class="section-subtitle">Los títulos mejor valorados por la comunidad</p>
+        <div class="cards">
+            <div class="card card-dark">
+                <i class="fas fa-crown card-icon"></i>
+                <h3>Elden Ring</h3>
+                <p>Un RPG de mundo abierto que redefine el género.</p>
+                <button class="btn-info" onclick="mostrarInfo('info1')">Ver más</button>
+                <div class="info-extra" id="info1">
+                    <p>Desarrollado por FromSoftware y publicado en 2022. Ganador de múltiples premios GOTY.</p>
+                </div>
+            </div>
+            <div class="card card-dark">
+                <i class="fas fa-star card-icon"></i>
+                <h3>God of War Ragnarök</h3>
+                <p>La épica conclusión de la saga nórdica de Kratos.</p>
+                <button class="btn-info" onclick="mostrarInfo('info2')">Ver más</button>
+                <div class="info-extra" id="info2">
+                    <p>Secuela directa de God of War (2018). Disponible en PS4, PS5 y PC.</p>
+                </div>
+            </div>
+            <div class="card card-dark">
+                <i class="fas fa-rocket card-icon"></i>
+                <h3>Starfield</h3>
+                <p>Explora más de 1000 planetas en esta aventura espacial.</p>
+                <button class="btn-info" onclick="mostrarInfo('info3')">Ver más</button>
+                <div class="info-extra" id="info3">
+                    <p>El primer universo nuevo de Bethesda en 25 años. Disponible en Xbox y PC.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECCIÓN 3: GALERÍA ===== -->
+    <section id="galeria" class="section">
+        <h2 class="section-title">Galería Gamer</h2>
+        <p class="section-subtitle">Los momentos más épicos capturados en pantalla</p>
+        <div class="galeria">
+            <div class="galeria-item" onclick="abrirModal('img/juego1.jpg', 'Elden Ring')">
+                <img src="img/juego1.jpg" alt="Elden Ring">
+                <div class="overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="galeria-item" onclick="abrirModal('img/juego2.jpg', 'God of War')">
+                <img src="img/juego2.jpg" alt="God of War">
+                <div class="overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="galeria-item" onclick="abrirModal('img/juego3.jpg', 'Starfield')">
+                <img src="img/juego3.jpg" alt="Starfield">
+                <div class="overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="galeria-item" onclick="abrirModal('img/juego4.jpg', 'Cyberpunk 2077')">
+                <img src="img/juego4.jpg" alt="Cyberpunk 2077">
+                <div class="overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="galeria-item" onclick="abrirModal('img/juego5.jpg', 'Hollow Knight')">
+                <img src="img/juego5.jpg" alt="Hollow Knight">
+                <div class="overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="galeria-item" onclick="abrirModal('img/juego6.jpg', 'Zelda TOTK')">
+                <img src="img/juego6.jpg" alt="Zelda TOTK">
+                <div class="overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECCIÓN 4: CONTACTO / CTA ===== -->
+    <section id="contacto" class="section section-cta">
+        <h2 class="section-title">¿Listo para unirte a la comunidad?</h2>
+        <p class="section-subtitle">Suscríbete y recibe las últimas noticias del mundo gamer</p>
+        <form class="form-contacto" id="formContacto">
+            <input type="text" placeholder="Tu nombre" required>
+            <input type="email" placeholder="Tu correo electrónico" required>
+            <button type="submit" class="btn-primary">
+                <i class="fas fa-paper-plane"></i> Suscribirme
+            </button>
+        </form>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3><i class="fas fa-gamepad"></i> GameHub</h3>
+                <p>Tu portal de videojuegos de confianza. Noticias, reseñas y comunidad gamer.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Enlaces</h3>
+                <a href="#inicio">Inicio</a>
+                <a href="#generos">Géneros</a>
+                <a href="#destacados">Destacados</a>
+                <a href="#galeria">Galería</a>
+            </div>
+            <div class="footer-col">
+                <h3>Síguenos</h3>
+                <div class="social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GameHub. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ===== MODAL ===== -->
+    <div class="modal" id="modal">
+        <span class="modal-close" onclick="cerrarModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <p class="modal-caption" id="modalCaption"></p>
+    </div>
+
+    <!-- ===== PWA: indicador de display / orientation y avisos ===== -->
+    <div class="pwa-chip" id="pwaChip" title="Toca para ver detalles"></div>
+    <div class="pwa-toast" id="pwaToast"></div>
+
+    <script>
+        // Valores declarados en manifest.json de esta versión
+        window.PWA_CONFIG = { display: 'fullscreen', orientation: 'landscape' };
+    </script>
+    <script src="js/app.js"></script>
+    <script src="js/pwa.js"></script>
+</body>
+</html>
