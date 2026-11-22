@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub PWA · Versiones display + orientation</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="theme-color" content="#0f0f1a">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f0f1a; color: #f8f9fa; line-height: 1.6;
+            min-height: 100vh; padding: 3rem 5%;
+        }
+        h1 { font-size: 2.2rem; text-align: center; }
+        h1 span { color: #7c3aed; }
+        .sub { text-align: center; color: #a0a0b0; margin: 0.5rem auto 2.5rem; max-width: 640px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+        a.card {
+            display: block; text-decoration: none; color: inherit;
+            background: #1a1a2e; border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 16px; padding: 1.8rem 1.5rem; transition: all 0.3s ease;
+        }
+        a.card:hover { transform: translateY(-6px); border-color: #7c3aed; box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3); }
+        .card img { width: 64px; height: 64px; display: block; margin-bottom: 1rem; }
+        .card h2 { font-size: 1.4rem; }
+        .card code { background: rgba(255,255,255,0.08); padding: 0.1rem 0.4rem; border-radius: 4px; color: #06b6d4; }
+        .card p { color: #a0a0b0; font-size: 0.92rem; margin-top: 0.6rem; }
+        .ruta { font-family: monospace; font-size: 0.85rem; color: #7c3aed; margin-top: 0.8rem; }
+        footer { text-align: center; color: #a0a0b0; font-size: 0.85rem; margin-top: 3rem; }
+    </style>
+</head>
+<body>
+    <h1>GameHub <span>PWA</span></h1>
+    <p class="sub">Misma aplicación web one page en cuatro versiones. Cada una declara en su <code>manifest.json</code> un modo <b>display</b> y una <b>orientation</b> distintos.</p>
+
+    <div class="grid">
+        <a class="card" href="browser/">
+            <img src="browser/icons/icon-128.png" alt="">
+            <h2>browser</h2>
+            <p>display <code>browser</code> · orientation <code>any</code></p>
+            <p>Se abre como una pestaña normal del navegador, con barra de direcciones completa.</p>
+            <div class="ruta">/browser/</div>
+        </a>
+        <a class="card" href="minimal-ui/">
+            <img src="minimal-ui/icons/icon-128.png" alt="">
+            <h2>minimal-ui</h2>
+            <p>display <code>minimal-ui</code> · orientation <code>portrait</code></p>
+            <p>Ventana propia con controles mínimos de navegación (atrás, recargar, URL).</p>
+            <div class="ruta">/minimal-ui/</div>
+        </a>
+        <a class="card" href="standalone/">
+            <img src="standalone/icons/icon-128.png" alt="">
+            <h2>standalone</h2>
+            <p>display <code>standalone</code> · orientation <code>portrait</code></p>
+            <p>Se ve como app nativa: sin barra del navegador, conserva la barra de estado.</p>
+            <div class="ruta">/standalone/</div>
+        </a>
+        <a class="card" href="fullscreen/">
+            <img src="fullscreen/icons/icon-128.png" alt="">
+            <h2>fullscreen</h2>
+            <p>display <code>fullscreen</code> · orientation <code>landscape</code></p>
+            <p>Ocupa toda la pantalla, oculta la barra de estado y la de navegación del sistema.</p>
+            <div class="ruta">/fullscreen/</div>
+        </a>
+    </div>
+
+    <footer>Equipo JDKC · Conversión de la Aplicación Web One Page a PWA</footer>
+</body>
+</html>
