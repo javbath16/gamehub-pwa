@@ -1,0 +1,81 @@
+/* ===== ESTILOS ADICIONALES PARA LA PWA ===== */
+
+/* Respeta el notch / zonas seguras en fullscreen y standalone */
+.header {
+    padding-top: max(1rem, env(safe-area-inset-top));
+    padding-left: max(5%, env(safe-area-inset-left));
+    padding-right: max(5%, env(safe-area-inset-right));
+}
+
+/* Botón Instalar en el encabezado */
+.btn-instalar {
+    background: var(--primary);
+    color: var(--light);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: var(--transition);
+    margin-left: 1.5rem;
+    white-space: nowrap;
+}
+.btn-instalar:hover { background: var(--primary-dark); }
+.btn-instalar[hidden] { display: none; }
+
+@media (max-width: 768px) {
+    .btn-instalar { margin-left: auto; margin-right: 0.8rem; }
+}
+
+/* Indicador de display + orientation */
+.pwa-chip {
+    position: fixed;
+    left: max(12px, env(safe-area-inset-left));
+    bottom: max(12px, env(safe-area-inset-bottom));
+    z-index: 1500;
+    background: rgba(26, 26, 46, 0.95);
+    border: 1px solid rgba(124, 58, 237, 0.6);
+    color: var(--light);
+    border-radius: 14px;
+    padding: 0.45rem 0.8rem;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    max-width: calc(100vw - 24px);
+    user-select: none;
+}
+.pwa-chip-titulo { font-weight: 700; color: var(--secondary); }
+.pwa-chip-detalle { display: none; margin-top: 0.3rem; }
+.pwa-chip.abierto .pwa-chip-detalle { display: block; }
+.pwa-chip code {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0 0.3rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+.pwa-chip code.ok { color: #4ade80; }
+.pwa-chip code.warn { color: #fbbf24; }
+
+/* Aviso flotante */
+.pwa-toast {
+    position: fixed;
+    left: 50%;
+    bottom: max(70px, calc(env(safe-area-inset-bottom) + 58px));
+    transform: translate(-50%, 20px);
+    background: var(--primary);
+    color: var(--light);
+    padding: 0.7rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+    z-index: 2500;
+    white-space: nowrap;
+}
+.pwa-toast.visible { opacity: 1; transform: translate(-50%, 0); }
